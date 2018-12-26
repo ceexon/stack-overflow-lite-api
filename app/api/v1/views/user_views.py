@@ -41,10 +41,10 @@ def user_signup():
     latest_user_id = latest_user['id'][len('user-00'):]
     new_user_id = int(latest_user_id) + 1
 
-    new_user['id'] = new_user_id
+    new_user['id'] = 'user-00' + str(new_user_id)
 
     Users.append(new_user)
-    return jsonify({"New User" : Users})
+    return jsonify({"New User" : new_user})
 
 
 
