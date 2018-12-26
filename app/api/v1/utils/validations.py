@@ -39,7 +39,4 @@ class ValidateUser():
         
         return True
 
-    def set_admin(self):
-        self.user_data['admin'] = False
-
             
