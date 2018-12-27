@@ -102,6 +102,7 @@ def answer_question(current_user, question_id):
     latest_ans_id = 'ans-00' + str(latest_ans_id)
     data["ans_id"] = latest_ans_id
     data["q_id"] = the_question["q_id"]
+    data["time"] = time.strftime("%d/%m/%Y, %H:%M")
     data["accepted"] = False
 
     Answers.append(data)
