@@ -27,3 +27,7 @@ def post_question(current_user):
 
     return jsonify({"New Question" : data})
 
+@v1_mod.route('/question', methods=['GET'])
+def get_all_questions():
+    return jsonify({"Questions": Questions})
+
