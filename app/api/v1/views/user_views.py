@@ -5,6 +5,7 @@ import datetime
 from functools import wraps
 from app.api.v1.utils.validations import ValidateUser
 from app.api.v1.models.models import Users
+from app import create_app
 
 user_mod = Blueprint('api',__name__)
 
@@ -45,6 +46,30 @@ def user_signup():
 
     Users.append(new_user)
     return jsonify({"New User" : new_user})
+
+@user_mod.route('/login', methods=['POST'])
+def user_login():
+    data = request.get_json()
+    all_names = []
+    all_passwords = []
+
+    for user in Users:
+        all_names.append(user["username"])
+        all_passwords.append(user['password'])
+
+    if data['username'] in all_names:
+        login_user = {}
+        for user in Users:
+            if user["username"] == data["username"]:
+                login_user = user
+                break
+        if check_password_hash(login_user["password"], data['password']):
+            token = jwt.encode({"public_id": login_user['public_id'], 'exp' : datetime.datetime.utcnow()+ datetime.timedelta(minutes=30)}, create_app.config["SECRET_KEY"])
+            return jsonify({"token": token.decode('UTF-8')}), 200
+
+        return jsonify({"message": "Invalid password"}), 401
+
+    return jsonify({"message": "username not found"}), 401 
 
 
 
