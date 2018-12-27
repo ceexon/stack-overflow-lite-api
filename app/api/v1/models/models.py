@@ -15,7 +15,16 @@ Questions = [
         "user-id" : "user-000",
         "title" : "What is stack overflow lite",
         "text" : "What is the main importance of stack overflow lite? How does it help the users?",
-        "time" : "27th Dec 2018, 1450hrs",
-        "accept": False
+        "time" : "27th Dec 2018, 1450hrs"
+    }
+]
+
+Answers = [
+    {
+        "ans_id" : "ans-000",
+        "username" : "admin",
+        "q_id" : "quiz-000",
+        "text" : "Stack overflow is the home of answers for all your education challenges",
+        "accepted" : False
     }
 ]
