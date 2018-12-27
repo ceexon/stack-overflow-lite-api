@@ -15,6 +15,7 @@ Questions = [
         "user-id" : "user-000",
         "title" : "What is stack overflow lite",
         "text" : "What is the main importance of stack overflow lite? How does it help the users?",
-        "time" : "27th Dec 2018, 1450hrs"
+        "time" : "27th Dec 2018, 1450hrs",
+        "accept": False
     }
 ]
