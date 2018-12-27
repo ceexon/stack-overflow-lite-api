@@ -27,3 +27,17 @@ def post_question(current_user):
 
     return jsonify({"New Question" : data})
 
+@v1_mod.route('/question', methods=['GET'])
+def get_all_questions():
+    return jsonify({"Questions": Questions})
+
+@v1_mod.route('/question/<question_id>', methods=['GET'])
+def get_specific_question(question_id):
+    for question in Questions:
+        q_id = question['q_id']
+        q_id = q_id[len('quiz-00'):]
+        if q_id == question_id:
+            return jsonify({"Question " + question_id : question}), 200
+
+    return jsonify({"Invalid Question Id" : "Question not found"}), 404
+
