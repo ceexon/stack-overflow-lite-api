@@ -169,26 +169,7 @@ def update_and_accept_answer(current_user, question_id, answer_id):
     else:
         return jsonify({"message" : "Can't modify an answer you did not write nor can you accept an answer to a question you did not ask."}), 401
     if ask_ans == 'ask':
-        """ Ensure asker only accepts or rejects answer """
-        try:
-            if data["text"] != the_answer["text"]:
-                return jsonify({"Permission denied" : "You can only accept or reject the answer!! nothing else!!"}), 403
-        except:
-            data["text"] = the_answer["text"]
-        try:
-            if data["accepted"] == the_answer["accepted"]:
-                return jsonify({"message" : "user only viewed the answer"}), 200
-        except:
-            data["accepted"] = the_answer["accepted"]
-
-        
-        """ User accepts or rejects answer """
-        if data["accepted"] == "false":
-            return jsonify({"rejection" : "Answer has been rejected"}), 201
-        elif data["accepted"] == "true":
-            return jsonify({"acceptance" : "Answer has been Accepted"}), 201
-        else:
-            return jsonify({"message" : "user only viewed the answer"}), 200
+        pass
 
     elif ask_ans == 'ans':
         """ Ensure user only updates answer """
