@@ -18,7 +18,6 @@ class ValidateUser():
         for user in Users:
             available_users.append(user['username'])
         
-        print(available_users)
         if self.user_data['username'] in available_users:
             return False
         
