@@ -55,8 +55,15 @@ def user_signup():
 @user_mod.route('/login', methods=['POST'])
 def user_login():
     data = request.get_json()
-    if not data:
-        return jsonify({"message": "No data found"}), 400
+    try:
+        if not data:
+            return jsonify({"message" : "No data found"}), 400
+
+        if data["username"] == "" or data["password"] == "":
+            return jsonify({"message" : "All fields must be filled"}), 400
+    except:
+        return jsonify({"message": "Missing either the username or password fields"}), 400
+
     all_names = []
     all_passwords = []
 
