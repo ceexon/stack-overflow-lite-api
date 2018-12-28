@@ -2,19 +2,20 @@ import unittest
 import os
 from app import create_app
 import json
+import pytest
 
 class BaseTest(unittest.TestCase):
     def setUp(self):
         self.app = create_app
         self.client = self.app.test_client()
 
-        self.data1 = {
+        self.data2 = {
             "username":"trevor",
             "email":"trevbk@gmail.com",
             "password":"$$22BBkk"
         }
 
-        self.data2 = {}
+        self.data1 = {}
 
         self.data3 = {
             "name":"",
