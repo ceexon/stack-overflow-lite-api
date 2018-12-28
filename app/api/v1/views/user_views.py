@@ -12,6 +12,9 @@ user_mod = Blueprint('api',__name__)
 @user_mod.route('/signup', methods=['POST'])
 def user_signup():
     data = request.get_json()
+    if not data:
+        return jsonify({"message": "No data found"}), 400
+
     val = ValidateUser(data)
     empty = val.no_empty_field()
     name = val.username_taken()
@@ -50,6 +53,8 @@ def user_signup():
 @user_mod.route('/login', methods=['POST'])
 def user_login():
     data = request.get_json()
+    if not data:
+        return jsonify({"message": "No data found"}), 400
     all_names = []
     all_passwords = []
 
@@ -69,8 +74,12 @@ def user_login():
                 token = jwt.encode({"public_id": login_user['public_id'], 'exp' : datetime.datetime.utcnow()+ datetime.timedelta(minutes=30)}, create_app.config["SECRET_KEY"])
                 return jsonify({"token": token.decode('UTF-8')}), 200
             return jsonify({"message": "Invalid password"}), 401
-        token = jwt.encode({"public_id": login_user['public_id'], 'exp' : datetime.datetime.utcnow()+ datetime.timedelta(minutes=30)}, create_app.config["SECRET_KEY"])
-        return jsonify({"token": token.decode('UTF-8')}), 200
+
+        else: 
+            if login_user['password'] == data['password']:
+                token = jwt.encode({"public_id": login_user['public_id'], 'exp' : datetime.datetime.utcnow()+ datetime.timedelta(minutes=30)}, create_app.config["SECRET_KEY"])
+                return jsonify({"token": token.decode('UTF-8')}), 200
+        return jsonify({"message": "Invalid password"}), 401
 
     return jsonify({"message": "username not found"}), 401 
 
