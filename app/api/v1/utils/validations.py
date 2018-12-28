@@ -13,12 +13,6 @@ class ValidateUser():
     def __init__(self, user_data):
         self.user_data = user_data
 
-    def no_empty_field(self):
-        for key in self.user_data:
-            if self.user_data[key] == "" or self.user_data[key].strip() == "":
-                return False
-        return True
-
     def username_taken(self):
         available_users = []
         for user in Users:
