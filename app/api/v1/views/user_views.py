@@ -50,7 +50,7 @@ def user_signup():
     new_user['id'] = 'user-00' + str(new_user_id)
 
     Users.append(new_user)
-    return jsonify({"New User" : new_user})
+    return jsonify({"New User" : new_user}), 201
 
 @user_mod.route('/login', methods=['POST'])
 def user_login():
