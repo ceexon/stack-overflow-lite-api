@@ -26,6 +26,6 @@ Answers = [
         "q_id" : "quiz-000",
         "text" : "Stack overflow is the home of answers for all your education challenges",
         "time" : "27/12/2018, 23:13",
-        "accepted" : False
+        "accepted" : ""
     }
 ]
