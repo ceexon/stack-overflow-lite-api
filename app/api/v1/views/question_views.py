@@ -109,6 +109,39 @@ def answer_question(current_user, question_id):
 
     return jsonify({the_question["text"]: data})
 
+@v1_mod.route('/question/<question_id>', methods=['DELETE'])
+@token_required
+def delete_question(current_user,question_id):
+    """ Checked who is the logged in user """
+    logged_user = {}
+    for user in Users:
+        if user["public_id"] == current_user:
+            logged_user = user
+    
+    if not logged_user:
+        return jsonify({"message" : "user not found"}), 401
+
+    """Get the question"""
+    the_question = {}
+    q_ids = []
+    for question in Questions:
+        q_ids.append(question["q_id"])
+        if question["q_id"][len("quiz-00"):] == question_id:
+            the_question = question
+
+    """ validate question_id """
+    q_id = "quiz-00" + question_id
+    if q_id in q_ids:
+        pass
+    else:
+        return jsonify({"Invalid Question Id" : "Question not found"}), 404
+
+    if logged_user["username"] != the_question["username"]:
+        return jsonify({"message" : "You cannot delete a question you did not ask"}), 401
+
+    Questions.remove(the_question)
+    return jsonify({"Question has been deleted" : str(len(Questions)) + " questions remaining"}), 200
+
 @v1_mod.route('/question/<question_id>/answer/<answer_id>', methods=['PUT'])
 @token_required
 def update_and_accept_answer(current_user, question_id, answer_id):
