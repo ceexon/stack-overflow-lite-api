@@ -12,17 +12,19 @@ user_mod = Blueprint('api',__name__)
 @user_mod.route('/signup', methods=['POST'])
 def user_signup():
     data = request.get_json()
-    if not data:
-        return jsonify({"message": "No data found"}), 400
+    try:
+        if not data:
+            return jsonify({"message" : "No data found"}), 400
+
+        if data["username"] == "" or data["password"] == "" or data["email"] == "":
+            return jsonify({"message" : "All fields must be filled"}), 400
+    except:
+        return jsonify({"message": "Missing either the username, password or email fields"}), 400
 
     val = ValidateUser(data)
-    empty = val.no_empty_field()
     name = val.username_taken()
     password = val.valid_password()
     email = val.valid_email()
-
-    if not empty:
-        return jsonify({"message" : "Please fill all the fields"}), 400
 
     if not name:
         return jsonify({"message" : "Username is already taken"}), 403
@@ -48,13 +50,20 @@ def user_signup():
     new_user['id'] = 'user-00' + str(new_user_id)
 
     Users.append(new_user)
-    return jsonify({"New User" : new_user})
+    return jsonify({"New User" : new_user}), 201
 
 @user_mod.route('/login', methods=['POST'])
 def user_login():
     data = request.get_json()
-    if not data:
-        return jsonify({"message": "No data found"}), 400
+    try:
+        if not data:
+            return jsonify({"message" : "No data found"}), 400
+
+        if data["username"] == "" or data["password"] == "":
+            return jsonify({"message" : "All fields must be filled"}), 400
+    except:
+        return jsonify({"message": "Missing either the username or password fields"}), 400
+
     all_names = []
     all_passwords = []
 
