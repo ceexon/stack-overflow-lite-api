@@ -1,0 +1,114 @@
+section.ask-area {
+    height: 100%;
+    padding: 0 4% 4%;
+    display: flex;
+    flex-direction: column;
+}
+
+div.quiz-ask-head {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+button.cat-title {
+    width: 200px;
+    margin: auto;
+    padding: 8px 0;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    background-color: #235588;
+}
+
+.button-text {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.3em;
+}
+
+form.add-cats {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+div.line-1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+input.cat-names-for-quiz {
+    padding: 8px;
+    width: 40%;
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid #f3f3f3;
+}
+
+/* div.line-2 {
+    margin-bottom: 0px;
+} */
+
+div.quiz-ask-box {
+    width: 95%;
+    margin: auto;
+    padding: 10px 20px;
+}
+
+form.actual-quiz-form {
+    width: 100%;
+    padding: 5px;
+}
+
+div.quiz-title {
+    padding: 10px;
+    width: 70%;
+    margin: auto;
+}
+
+input.quiz-title-field {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #f6f0f0;
+    outline: none;
+}
+
+div.quiz-desc-field {
+    width: 100%;
+    padding: 15px;
+}
+
+label.q-label {
+    font-weight: 500;
+    font-size: 1.3em;
+    color: #235588;
+    padding-bottom: 3px;
+}
+
+textarea.quiz-description-field {
+    display: inline-block;
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid grey;
+    outline: none;
+}
+
+.in-form {
+    margin: 10px 0;
+}
+
+input.user-submit-button {
+    background-color: #235588;
+    width: auto;
+    margin-left: 35%;
+}
