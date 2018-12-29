@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" href="images/sl-logo.png">
   <link rel="stylesheet" href="css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/forms.css">
 </head>
 
 <body>
@@ -31,25 +32,25 @@
       </ul>
     </nav>
   </header>
+
+  <h2 class="welcome b4-forms">Join the stack-overflow lite community</h2>
+
   <main>
 
-    <section class="page-aside right-aside">
-      <h3 class="aside-ttle-1">Popular categories</h3>
-      <ol class="aside-list">
-        <li class="aside-content">Programming</li>
-        <li class="aside-content">Github</li>
-        <li class="aside-content">Music</li>
-        <li class="aside-content">Law</li>
-        <li class="aside-content">Business</li>
-      </ol>
-
-      <h3 class="aside-ttle-1 tr-top">Trending this week</h3>
-      <ol class="this-week aside-list">
-        <li class="aside-content">Music</li>
-        <li class="aside-content">Cooking</li>
-        <li class="aside-content">Gaming</li>
-        <li class="aside-content">Books</li>
-      </ol>
+    <section class="user-form-container">
+      <form action="index.html" class="user-form">
+        <input type="email" name="email" placeholder="Enter your email" class="user-text-input"> <br>
+        <input type="text" name="username" placeholder="Add a username" class="user-text-input"> <br>
+        <label for="gender">Gender: </label>
+        <input type="radio" name="gender" class="radio-input"> <span class="radio-name">Male</span>
+        <input type="radio" name="gender" class="radio-input"> <span class="radio-name">Female</span> <br>
+        <input type="password" name="password" placeholder="Enter a valid password" class="user-text-input"> <br>
+        <input type="password" name="conf-password" placeholder="Confirm your password" class="user-text-input"> <br>
+        <input type="submit" role="button" value="Create Account" class="user-submit-button">
+      </form>
+      <div class="alternative-text">
+        <p> Already have an account? <a href="login.html" class="alternative-link">login</a> </p>
+      </div>
     </section>
 
   </main>
