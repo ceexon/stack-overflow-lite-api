@@ -2,109 +2,108 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>StackOverflow Lite</title>
-    <link rel="icon" type="image/png" href="images/sl-logo.png">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/forms.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/question.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>StackOverflow Lite</title>
+  <link rel="icon" type="image/png" href="images/sl-logo.png">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/question.css">
 </head>
 
 <body>
-    <header class="main-header">
-        <div class="logo"><img src="images/sl-logo.png" alt="" class="img-logo"> <span class="lite">Lite</span></div>
-        <nav class="main-nav">
-            <ul class="main-nav-list">
-                <li class="main-nav-item">
-                    <a href="index.html" class="main-nav-link">Home <span class="fas fa-home"></span></a>
-                </li>
-                <li class="main-nav-item">
-                    <a href="popular.html" class="main-nav-link">FAQs </a>
-                </li>
-                <li class="main-nav-item">
-                    <a href="login.html" class="main-nav-link">Login </a>
-                </li>
-                <li class="main-nav-item">
-                    <a href="signup.html" class="main-nav-link">Signup</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+  <header class="main-header">
+    <div class="logo"><img src="images/sl-logo.png" alt="" class="img-logo"> <span class="lite">Lite</span></div>
+    <nav class="main-nav">
+      <ul class="main-nav-list">
+        <li class="main-nav-item">
+          <a href="index.html" class="main-nav-link">Home <span class="fas fa-home"></span></a>
+        </li>
+        <li class="main-nav-item">
+          <a href="popular.html" class="main-nav-link">FAQs </a>
+        </li>
+        <li class="main-nav-item">
+          <a href="login.html" class="main-nav-link">Login </a>
+        </li>
+        <li class="main-nav-item">
+          <a href="signup.html" class="main-nav-link">Signup</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section class="four-main-pages left-aside">
-            <div class="four-main-nav">
-                <a href="index.html" class="four-main-pages-links main-nav-link">Recent</a>
-            </div>
-            <div class="four-main-nav">
-                <a href="popular.html" class="four-main-pages-links main-nav-link">Popular</a>
-            </div>
-            <div class="four-main-nav">
-                <a href="unsolved.html" class="four-main-pages-links main-nav-link">Unsolved</a>
-            </div>
-            <div class="four-main-nav active">
-                <a href="ask.html" class="four-main-pages-links main-nav-link">ASK</a>
-            </div>
-        </section>
-        <div class="center-page">
+  <main>
+    <section class="four-main-pages left-aside">
+      <div class="four-main-nav">
+        <a href="index.html" class="four-main-pages-links main-nav-link">Recent</a>
+      </div>
+      <div class="four-main-nav">
+        <a href="popular.html" class="four-main-pages-links main-nav-link">Popular</a>
+      </div>
+      <div class="four-main-nav">
+        <a href="unsolved.html" class="four-main-pages-links main-nav-link">Unsolved</a>
+      </div>
+      <div class="four-main-nav active">
+        <a href="ask.html" class="four-main-pages-links main-nav-link">ASK</a>
+      </div>
+    </section>
+    <div class="center-page">
 
-            <section class="ask-area">
-                <div class="quiz-ask-head">
-                    <button class="cat-title button-text">Enter Categories</button>
-                    <form class="add-cats">
-                        <div class="line-1">
-                            <input type="text" class="cat-names-for-quiz" placeholder="Category 1" required>
-                            <input type="text" class="cat-names-for-quiz" placeholder="Category 2">
-                        </div>
+      <section class="ask-area">
+        <div class="quiz-ask-head">
+          <button class="cat-title button-text">Enter Categories</button>
+          <form class="add-cats">
+            <div class="line-1">
+              <input type="text" class="cat-names-for-quiz" placeholder="Category 1" required>
+              <input type="text" class="cat-names-for-quiz" placeholder="Category 2">
+            </div>
 
-                        <div class="line-1 line-2">
-                            <input type="text" class="cat-names-for-quiz" placeholder="Category 3">
-                            <input type="text" class="cat-names-for-quiz" placeholder="Category 4">
-                        </div>
+            <div class="line-1 line-2">
+              <input type="text" class="cat-names-for-quiz" placeholder="Category 3">
+              <input type="text" class="cat-names-for-quiz" placeholder="Category 4">
+            </div>
 
-                    </form>
-                </div>
-                <div class="quiz-ask-box">
-                    <form action="" class="actual-quiz-form">
-                        <div class="quiz-title in-form">
-                            <label class="q-label" for="quiz-title" class="title-quiz-title-field">Title: </label>
-                            <input type="text" class="quiz-title-field" placeholder="Question Title" name="quiz-title">
-                        </div>
-                        <div class="quiz-desc-field in-form">
-                            <label class="q-label" for="quiz-desc">
-                                Question Description:
-                            </label>
-                            <textarea name="quiz-desc" class="quiz-description-field" placeholder="Question Description...."
-                                rows="10"></textarea>
-                        </div>
-                        <input role="button" type="submit" class="user-submit-button" value="Ask Question">
-                    </form>
-                </div>
-            </section>
+          </form>
         </div>
+        <div class="quiz-ask-box">
+          <form action="" class="actual-quiz-form">
+            <div class="quiz-title in-form">
+              <label class="q-label" for="quiz-title" class="title-quiz-title-field">Title: </label>
+              <input type="text" class="quiz-title-field" placeholder="Question Title" name="quiz-title">
+            </div>
+            <div class="quiz-desc-field in-form">
+              <label class="q-label" for="quiz-desc">
+                Question Description:
+              </label>
+              <textarea name="quiz-desc" class="quiz-description-field" placeholder="Question Description...." rows="10"></textarea>
+            </div>
+            <input role="button" type="submit" class="user-submit-button" value="Ask Question">
+          </form>
+        </div>
+      </section>
+    </div>
 
-        <section class="page-aside right-aside">
-            <h3 class="aside-ttle-1">Popular categories</h3>
-            <ol class="aside-list">
-                <li class="aside-content">Programming</li>
-                <li class="aside-content">Github</li>
-                <li class="aside-content">Music</li>
-                <li class="aside-content">Law</li>
-                <li class="aside-content">Business</li>
-            </ol>
+    <section class="page-aside right-aside">
+      <h3 class="aside-ttle-1">Popular categories</h3>
+      <ol class="aside-list">
+        <li class="aside-content">Programming</li>
+        <li class="aside-content">Github</li>
+        <li class="aside-content">Music</li>
+        <li class="aside-content">Law</li>
+        <li class="aside-content">Business</li>
+      </ol>
 
-            <h3 class="aside-ttle-1 tr-top">Trending this week</h3>
-            <ol class="this-week aside-list">
-                <li class="aside-content">Music</li>
-                <li class="aside-content">Cooking</li>
-                <li class="aside-content">Gaming</li>
-                <li class="aside-content">Books</li>
-            </ol>
-        </section>
-    </main>
+      <h3 class="aside-ttle-1 tr-top">Trending this week</h3>
+      <ol class="this-week aside-list">
+        <li class="aside-content">Music</li>
+        <li class="aside-content">Cooking</li>
+        <li class="aside-content">Gaming</li>
+        <li class="aside-content">Books</li>
+      </ol>
+    </section>
+  </main>
 
 </body>
 
