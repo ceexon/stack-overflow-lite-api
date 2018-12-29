@@ -73,3 +73,7 @@ a.alternative-link {
     letter-spacing: 1px;
     display: inline;
 }
+
+p.forgot-pass {
+    margin-top: 8px;
+}
