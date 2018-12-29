@@ -1,0 +1,75 @@
+h2.welcome-index,
+h2.b4-forms {
+    margin-top: 80px;
+    text-align: center;
+    color: #425c81;
+}
+
+.page-aside {
+    position: relative;
+}
+
+/* Working with the signup and login forms */
+section.user-form-container {
+    height: 100%;
+    margin: auto;
+    position: relative;
+    flex-basis: 70vw;
+}
+
+form.user-form {
+    padding: 20px 20px 15px;
+    height: 100%;
+    border: thin solid #d3d1d2;
+    border-radius: 10px;
+}
+
+form.user-form,
+div.alternative-text {
+    width: 60%;
+    margin: auto;
+}
+
+input.user-text-input {
+    padding: 10px;
+    width: 80%;
+    border: thin solid #d3d1d2;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+label[for="gender"],
+input.user-text-input {
+    margin: 10px auto 10px 6%;
+    display: inline-block;
+}
+
+label[for="gender"],
+.radio-name {
+    color: #425c81;
+}
+
+.user-submit-button {
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #14589c;
+    padding: 10px 20px;
+    margin-left: 20%;
+    width: 200px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.3em;
+}
+
+div.alternative-text {
+    padding: 10px;
+    text-align: right;
+}
+
+a.alternative-link {
+    color: #425c81;
+    letter-spacing: 1px;
+    display: inline;
+}
