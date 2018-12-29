@@ -68,21 +68,49 @@ a.main-nav-link{
     font-size: 1.4em;
 }
 
-section.four-main-pages {
+main {
     display: flex;
-    width: 55%;
-    margin-top: 70px;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    align-content: center;
+    margin-top: 60px;
+}
+
+section.four-main-pages {
     background-color: #f3f3f6;
+    position: fixed;
+    width: 15vw;
+    height: 100vh;
+}
+
+div.center-page {
+    flex-basis: 70%;
+    width: 65vw;
+    margin: 20px 18vw 20px 16vw; 
+}
+
+section.page-aside {
+    position: fixed;
+    right: 10px;
+    width: 12vw;
+    margin-top: 30px;
 }
 
 div.four-main-nav {
-    padding: 5px 20px;
+    width: 100%;
+    box-sizing: content-box;
+    padding: 10px 0;
+    text-align: justify;
+}
+
+div.four-main-nav:first-child {
+    margin-top: 70px;
 }
 
 a.four-main-pages-links{
     color: #000;
     display: inline-block;
-    padding: 5px 20px;
+    margin-left: 25%;
     font-size: 1em;
 }
 
@@ -97,10 +125,11 @@ a.four-main-pages-links{
 
 section.question-dialog {
     padding: 10px;
-    width: 70%;
+    width: 100%;
     position: relative;
     border: 1px solid #d3d3d3;
     border-left: none;
+    border-right: none;
     margin: 10px 0 20px;
     border-radius: 2px;
 }
@@ -184,13 +213,6 @@ button.answer-button a {
     text-decoration: none;
     font-size: 1.1em;
     color: #fff;
-}
-
-section.page-aside {
-    position: fixed;
-    top: 100px;
-    right: 10px;
-    width: 20%;
 }
 
 h3.aside-ttle-1 {
