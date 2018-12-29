@@ -112,3 +112,23 @@ input.user-submit-button {
     width: auto;
     margin-left: 35%;
 }
+
+section.add-answer {
+    width: 100%;
+    padding: 20px;
+}
+
+div.your-answer {
+    width: 100%;
+}
+
+h3.your-answer-title {
+    width: 100%;
+    color: #235588;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+input.submit-answer {
+    margin-top: 10px;
+}
