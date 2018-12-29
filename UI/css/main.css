@@ -1,4 +1,5 @@
-body, * {
+body,
+* {
     padding: 0;
     margin: 0;
     vertical-align: middle;
@@ -25,14 +26,14 @@ div.logo {
     padding: 10px;
 }
 
-div.logo > img.img-logo {
+div.logo>img.img-logo {
     margin: -10px 0 0 -10px;
     height: 150%;
 
 
 }
 
-span.lite{
+span.lite {
     display: inline-block;
     color: #fff;
     font-weight: 550;
@@ -61,7 +62,7 @@ li.main-nav-item {
     display: inline;
 }
 
-a.main-nav-link{
+a.main-nav-link {
     color: #fff;
     font-weight: 500;
     text-decoration: none;
@@ -86,14 +87,16 @@ section.four-main-pages {
 div.center-page {
     flex-basis: 70%;
     width: 65vw;
-    margin: 20px 18vw 20px 16vw; 
+    margin: 20px 18vw 20px 16vw;
 }
 
 section.page-aside {
     position: fixed;
-    right: 10px;
-    width: 12vw;
-    margin-top: 30px;
+    right: 0px;
+    width: 17vw;
+    background-color: #f3f3f6;
+    height: 100%;
+    padding: 20px;
 }
 
 div.four-main-nav {
@@ -107,7 +110,7 @@ div.four-main-nav:first-child {
     margin-top: 70px;
 }
 
-a.four-main-pages-links{
+a.four-main-pages-links {
     color: #000;
     display: inline-block;
     margin-left: 25%;
