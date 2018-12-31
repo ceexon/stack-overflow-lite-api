@@ -14,10 +14,21 @@ def post_question(current_user):
         if not data:
             return jsonify({"message": "Cannot be empty"}), 400
 
-        if data["title"] == "" or data["text"] == "":
+        if 'title' not in data.keys() and 'text' not in data.keys():
             return jsonify({"message": "Both title and text description are required"}), 400
+
+        if data['title'] == "" or data['text'] == '':
+            return jsonify({"": "Both title and text fields must be filled"})
+
     except:
         return jsonify({"message": "Either title and text data fields are missing"}), 400
+
+    if data['title'] == "" and data['text'] == '':
+        return jsonify({"": "Both title and text fields must be filled"})
+    elif data["title"] == "":
+        return jsonify({"message": "Question Title is required"}), 400
+    elif data["text"] == "":
+        return jsonify({"message": "Question text description is required"}), 400
 
     logged_user = {}
     for user in Users:
