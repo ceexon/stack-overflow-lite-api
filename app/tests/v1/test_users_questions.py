@@ -56,6 +56,10 @@ class BaseTest(unittest.TestCase):
             "text": ""
         }
 
+        self.change_data = {
+            "text": "this answer content was changed"
+        }
+
     def tearDown(self):
         pass
 
