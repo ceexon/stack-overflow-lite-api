@@ -68,7 +68,8 @@ class TestPostQuestion(BaseTest):
     def login(self):
         login = self.client.post(
             'api/v1/auth/login', data=json.dumps(self.ask_user), content_type="application/json")
-        self.token = json.loads(login.data.decode('utf-8'))
+        self.token = json.loads(login.data.decode(
+            'utf-8', create_app.config['SECRET_KEY']))
         self.token = self.token["token"]
         return self.token
 
@@ -77,14 +78,16 @@ class TestPostQuestion(BaseTest):
             'api/v1/auth/signup', data=json.dumps(self.fake_user), content_type="application/json")
         login1 = self.client.post(
             'api/v1/auth/login', data=json.dumps(self.fake_user), content_type="application/json")
-        self.token1 = json.loads(login1.data.decode('utf-8'))
+        self.token1 = json.loads(login1.data.decode(
+            'utf-8', create_app.config['SECRET_KEY']))
         self.token1 = self.token1["token"]
         return self.token1
 
     def test_question_asked_not_loged_in(self):
         response = self.client.post(
             'api/v1/question', data=json.dumps(self.question), content_type="application/json")
-        result = json.loads(response.data.decode('utf-8'))
+        result = json.loads(response.data.decode(
+            'utf-8', create_app.config['SECRET_KEY']))
         self.assertEqual(result["message"], "Token is missing")
         self.assertEqual(response.status_code, 401)
 
@@ -92,7 +95,8 @@ class TestPostQuestion(BaseTest):
         self.token = self.login()
         response = self.client.post(
             'api/v1/question', headers={'x-access-token': self.token}, data=json.dumps(self.empty_question), content_type="application/json")
-        result = json.loads(response.data.decode('utf-8'))
+        result = json.loads(response.data.decode(
+            'utf-8', create_app.config['SECRET_KEY']))
         self.assertEqual(response.status_code, 400)
         self.assertIn(result["message"], "Cannot be empty")
 
@@ -100,7 +104,8 @@ class TestPostQuestion(BaseTest):
         self.token = self.login()
         response = self.client.post(
             'api/v1/question', headers={'x-access-token': self.token}, data=json.dumps(self.no_title), content_type="application/json")
-        result = json.loads(response.data.decode('utf-8'))
+        result = json.loads(response.data.decode(
+            'utf-8', create_app.config['SECRET_KEY']))
         self.assertEqual(response.status_code, 400)
         self.assertIn(result["message"],
                       "Either title and text data fields are missing")
@@ -109,7 +114,8 @@ class TestPostQuestion(BaseTest):
         self.token = self.login()
         response = self.client.post(
             'api/v1/question', headers={'x-access-token': self.token}, data=json.dumps(self.no_desc_text), content_type="application/json")
-        result = json.loads(response.data.decode('utf-8'))
+        result = json.loads(response.data.decode(
+            'utf-8', create_app.config['SECRET_KEY']))
         self.assertEqual(response.status_code, 400)
         self.assertIn(result["message"],
                       "Either title and text data fields are missing")
@@ -118,7 +124,8 @@ class TestPostQuestion(BaseTest):
         self.token = self.login()
         response = self.client.post(
             'api/v1/question', headers={'x-access-token': self.token}, data=json.dumps(self.no_title_or_text_keys), content_type="application/json")
-        result = json.loads(response.data.decode('utf-8'))
+        result = json.loads(response.data.decode(
+            'utf-8', create_app.config['SECRET_KEY']))
         self.assertEqual(response.status_code, 400)
         self.assertIn(result["message"],
                       "Both title and text description are required")
@@ -127,7 +134,8 @@ class TestPostQuestion(BaseTest):
         self.token = self.login()
         response = self.client.post(
             'api/v1/question', headers={'x-access-token': self.token}, data=json.dumps(self.empty_title_and_text), content_type="application/json")
-        result = json.loads(response.data.decode('utf-8'))
+        result = json.loads(response.data.decode(
+            'utf-8', create_app.config['SECRET_KEY']))
         self.assertEqual(response.status_code, 400)
         self.assertEqual(result["message"],
                          "Both title and text fields must be filled")
@@ -136,7 +144,8 @@ class TestPostQuestion(BaseTest):
         self.token = self.login()
         response = self.client.post(
             'api/v1/question', headers={'x-access-token': self.token}, data=json.dumps(self.empty_title), content_type="application/json")
-        result = json.loads(response.data.decode('utf-8'))
+        result = json.loads(response.data.decode(
+            'utf-8', create_app.config['SECRET_KEY']))
         self.assertEqual(response.status_code, 400)
         self.assertEqual(result["message"],
                          "Question Title is required")
@@ -145,7 +154,8 @@ class TestPostQuestion(BaseTest):
         self.token = self.login()
         response = self.client.post(
             'api/v1/question', headers={'x-access-token': self.token}, data=json.dumps(self.empty_text), content_type="application/json")
-        result = json.loads(response.data.decode('utf-8'))
+        result = json.loads(response.data.decode(
+            'utf-8', create_app.config['SECRET_KEY']))
         print(result)
         self.assertEqual(response.status_code, 400)
         self.assertEqual(result["message"],
@@ -165,7 +175,8 @@ class TestGetQuestion(BaseTest):
 
     def test_get_question_by_id_fail(self):
         response = self.client.get('api/v1/question/10')
-        result = json.loads(response.data.decode('utf-8'))
+        result = json.loads(response.data.decode(
+            'utf-8', create_app.config['SECRET_KEY']))
         self.assertEqual(result['Invalid Question Id'], "Question not found")
         self.assertEqual(response.status_code, 404)
 
@@ -177,7 +188,8 @@ class TestGetQuestion(BaseTest):
 class TestDeleteQuestion(TestPostQuestion):
     def test_delete_question_no_token(self):
         response = self.client.delete('api/v1/question/10')
-        result = json.loads(response.data.decode('utf-8'))
+        result = json.loads(response.data.decode(
+            'utf-8', create_app.config['SECRET_KEY']))
         print(result)
         self.assertEqual(result['message'], "Token is missing")
         self.assertEqual(response.status_code, 401)
@@ -186,7 +198,8 @@ class TestDeleteQuestion(TestPostQuestion):
         self.token = self.login_1()
         response = self.client.delete(
             'api/v1/question/1', headers={'x-access-token': self.token})
-        result = json.loads(response.data.decode('utf-8'))
+        result = json.loads(response.data.decode(
+            'utf-8', create_app.config['SECRET_KEY']))
         print(result)
         self.assertEqual(result["message"],
                          "You cannot delete a question you did not ask")
@@ -196,7 +209,8 @@ class TestDeleteQuestion(TestPostQuestion):
         self.token = self.login()
         response = self.client.delete(
             'api/v1/question/1', headers={'x-access-token': self.token})
-        result = json.loads(response.data.decode('utf-8'))
+        result = json.loads(response.data.decode(
+            'utf-8', create_app.config['SECRET_KEY']))
         print(result)
         self.assertEqual(result["message"],
                          "Question has been deleted")
