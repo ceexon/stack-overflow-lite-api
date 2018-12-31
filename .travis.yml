@@ -1,5 +1,22 @@
 language: python
+
 python:
-    - "3.5.2"
-  script:
-    - pytest
+  - "3.5.2"
+
+install:
+  - pip install -r requirements.txt
+
+  - pip install coveralls
+
+  - pip install codeclimate-test-reporter
+
+env:
+  - FLASK_VERSION=1.0.2
+
+script:
+  - nosetests --with-coverage --cover-package=app/api/v1 && coverage report
+  - coveralls
+
+after_success:
+  - coveralls
+  - codeclimate-test-reporter
