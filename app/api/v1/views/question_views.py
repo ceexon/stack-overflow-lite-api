@@ -17,18 +17,17 @@ def post_question(current_user):
         if 'title' not in data.keys() and 'text' not in data.keys():
             return jsonify({"message": "Both title and text description are required"}), 400
 
-        if data['title'] == "" or data['text'] == '':
-            return jsonify({"": "Both title and text fields must be filled"})
+        if data['title'] == "" and data['text'] == '':
+            return jsonify({"message": "Both title and text fields must be filled"}), 400
+
+        if not data['text']:
+            return jsonify({"message": "Question text description is required"}), 400
+
+        if not data["title"]:
+            return jsonify({"message": "Question Title is required"}), 400
 
     except:
         return jsonify({"message": "Either title and text data fields are missing"}), 400
-
-    if data['title'] == "" and data['text'] == '':
-        return jsonify({"": "Both title and text fields must be filled"})
-    elif data["title"] == "":
-        return jsonify({"message": "Question Title is required"}), 400
-    elif data["text"] == "":
-        return jsonify({"message": "Question text description is required"}), 400
 
     logged_user = {}
     for user in Users:
@@ -54,7 +53,7 @@ def post_question(current_user):
 
 @v1_mod.route('/question', methods=['GET'])
 def get_all_questions():
-    return jsonify({"Questions": Questions})
+    return jsonify({"Questions": Questions}), 200
 
 
 @v1_mod.route('/question/<question_id>', methods=['GET'])
@@ -156,7 +155,7 @@ def delete_question(current_user, question_id):
         return jsonify({"message": "You cannot delete a question you did not ask"}), 401
 
     Questions.remove(the_question)
-    return jsonify({"Question has been deleted": str(len(Questions)) + " questions remaining"}), 200
+    return jsonify({"message": "Question has been deleted"}), 200
 
 
 @v1_mod.route('/question/<question_id>/answer/<answer_id>', methods=['PUT'])
